@@ -20,3 +20,44 @@ git pull origin master
 
  227  git branch -M main
 228  git push -u origin main
+
+ANSIBLE.cfg
+[defaults]
+inventory=./inventory.ini
+
+INVENTORY.INI
+[gpdocker]
+docker60
+
+[gpdocker:vars]
+ansible_python_interpreter = /usr/bin/python3
+
+
+[gpnginx]
+nginx01
+nginx02
+nginx03
+[gpnginx:vars]
+ansible_python_interpreter = /usr/bin/python3
+
+
+PLAYBOOK-MACVLAN172
+---
+- name: Creation de MacVlan172
+  hosts: gpdocker
+  become: true
+  user: root
+  tasks:
+  - name: Create macvlan network for containers
+    docker_network:
+      name: "macvlan_173"
+      state: present
+      driver: macvlan
+      driver_options:
+        parent: "ens33"
+        ipam_config:
+        - subnet: '172.19.20.0/24'
+        gateway: '172.19.20.254'
+
+
+
