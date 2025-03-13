@@ -16,3 +16,7 @@ git push --set-upstream origin master
 
 Synchro du github vers le dossier 
 git pull origin master
+
+
+ 227  git branch -M main
+228  git push -u origin main
