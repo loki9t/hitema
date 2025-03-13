@@ -13,6 +13,14 @@ git remote set-url origin https://github.com/loki9t/hitema
 git remote -v
 git push --set-upstream origin master
 
+(git checkout -b master  # Crée et bascule sur master
+git add .  # Ajoute tous les fichiers (si tu as du contenu à committer)
+git commit -m "Initial commit")
+
+
+
+
+
 
 Synchro du github vers le dossier 
 git pull origin master
