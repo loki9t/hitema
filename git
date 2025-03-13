@@ -19,6 +19,7 @@ git push --set-upstream origin master
 git add .  # Ajoute tous les fichiers (si tu as du contenu à committer)
 git commit -m "Initial commit")
 
+git pull origin master --rebase
 
 
 
