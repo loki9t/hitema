@@ -60,4 +60,27 @@ PLAYBOOK-MACVLAN172
         gateway: '172.19.20.254'
 
 
+/ETC/SAMBA/SMB.CONF
+[global]
+workgroup = promoresb60
+server string = docker
+map to guest = bad user
+obey pam restrictions = yes
+valid users = root, theo, luc
+security = user
+os level = 65
+domain master = no
+local master = yes
+
+[partage]
+comment = share directory
+path = /tmp/projet-devops/
+public = yes
+writable = yes
+read only = no
+browseable = yes
+printable = no
+
+
+
 
