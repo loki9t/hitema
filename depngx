@@ -1,0 +1,18 @@
+---
+- name: Deploy Container sur Docker
+  hosts: gpdocker
+  become: true
+  tasks:
+    - name: Deploy container centos httpd
+      docker_container:
+        name: nginx04
+        image: nginx
+        hostname: nginx04
+        restart_policy: always
+        ports:
+          - "8089:80"  # Expose port 8084 on the host, mapped to port 80 in the>
+        networks:
+          - name: macvlan2
+            ipv4_address: 172.19.20.149
+        volumes:
+          - /tmp/projet-devops/:/usr/share/nginx/html
